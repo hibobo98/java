@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet; 
 
 public class Sample {
     public static void main(String[] args) {
@@ -214,8 +215,60 @@ public class Sample {
         System.out.println(map.getOrDefault("java", "tongtong"));
 
         // containsKey
+        System.out.println(map.containsKey("people"));
 
+        // remove
+        System.out.println(map.remove("people"));
 
+        // size
+        map.put("people", "사람");
+        System.out.println(map.size());
+
+        // keySet
+        System.out.println(map.keySet()); // output = 집합 자료형 
+        
+        ArrayList<String> KeyList = new ArrayList<>(map.keySet()); // output = 리스트 자료형 
+        System.out.println(KeyList);
+
+        // LinkedHashMap : 입력된 순서대로 데이터를 저장
+        // TreeMap : 입력된 key의 오름차순으로 데이터 저장 
+
+        /* 자료형 -9 집합 */
+        // 순서가 없기때문에 인덱싱이 안된다. 
+        HashSet<String> set = new HashSet<>(Arrays.asList("h", "e", "l", "l", "o"));
+        System.out.println(set); 
+
+        // 교집합 reatinAll
+        HashSet<Integer> s1 = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        HashSet<Integer> s2 = new HashSet<>(Arrays.asList(4, 5, 6, 7, 8, 9));
+        
+        HashSet<Integer> intersection = new HashSet<>(s1);
+        intersection.retainAll(s2);
+        System.out.print(intersection);
+
+        // 합집합 addAll
+        HashSet<Integer> union = new HashSet<>(s1);
+        union.addAll(s2);
+        System.out.println(union);
+
+        // 차집합 removeAll
+        HashSet<Integer> substract = new HashSet<>(s1);
+        substract.removeAll(s2);
+        System.out.println(substract); 
+
+        // add, addAll, remove
+        set.add("Jump");
+        set.add("to");
+        set.add("java");
+        System.out.println(set);
+
+        set.addAll(Arrays.asList("to", "javava"));
+        System.out.println(set);
+
+        // TreeSet : 값을 오름차순으로 정렬해 저장
+        // LinkedHashSet : 값을 입력한 순서대로 정렬 
 
     }
+    
+
 }
